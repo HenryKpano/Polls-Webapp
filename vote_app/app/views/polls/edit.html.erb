@@ -1,0 +1,14 @@
+<h3>This is the edit page</h3>
+
+<%= form_for @poll do |f| %>
+
+	<p><%= f.label :title %>: <%= f.text_field :title %></p>
+
+	<p><%= f.label :image %>: <%= f.file_field :image %></p>
+
+	<p><%= f.label :image_one %>: <%= f.file_field :image_one %></p>
+
+	<p><%= f.label :message %>: <%= f.text_field :message %></p>
+
+	<p><%= f.submit "Save poll changes " %></p>
+<% end %>

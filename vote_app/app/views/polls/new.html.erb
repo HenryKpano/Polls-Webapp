@@ -1,0 +1,13 @@
+<h1>This is the new page</h1>
+
+<%= form_for @poll, html: { multipart: true } do |f| %>
+	<p><%= f.label "Title" %>: <%= f.text_field :title %></p>
+
+	
+	<p><%= f.label "Message" %>: <%= f.text_field :message, class: "form-control"%></p>
+	<p><%= f.label "Message" %>: <%= f.text_field :message, class: "form-control"%></p>
+
+	<p><%= f.submit "Create poll" %></p>
+
+<% end %>
+<%= link_to 'Back', polls_path %>
