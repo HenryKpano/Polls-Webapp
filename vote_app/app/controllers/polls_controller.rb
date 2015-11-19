@@ -1,7 +1,7 @@
 class PollsController < ApplicationController
 
 def index
-	@poll =Poll.all
+	@polls =Poll.all
 end
 
 def new
@@ -15,16 +15,16 @@ end
 def create
 	@poll =Poll.new(poll_params)
 
-		if @poll.save
-			redirect_to polls_path, :notice => "Your new poll has been created"
-		else
-			render "new"
-		end
+	if @poll.save
+		redirect_to polls_path, :notice => "Your new poll has been created"
+	else
+		render "new"
+	end
 end
 
 def edit
-		@poll =Poll.find(params[:id])
-	end
+	@poll =Poll.find(params[:id])
+end
 
 def show
 	@poll =Poll.find(params[:id])

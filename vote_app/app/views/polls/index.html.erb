@@ -1,24 +1,35 @@
 <h2>This is the index page </h2>
 
-<% @poll.each do |poll| %>
-	<p>
+<% @polls.each do |poll| %>
+	<p>		
+		<%= form_for poll.votes.build do |f| %>
 		<%= link_to poll.title, poll %>
+		<%= f.radio_button :vote_count, 'A' %> Yes<br/>
+		<%= poll.message %>
+		<%= f.radio_button :vote_count, 'B' %> Yes<br/>
+		<p><%= f.submit "Vote" %></p>
+		<% end %>
 		</p>
 
 		<% imagepoll1 = poll.image.url(:medium) != '/images/medium/missing.png' ? true : false %>
 		<% imagepoll2 = poll.image_one.url(:medium) != '/image_ones/medium/missing.png' ? true : false %>
 
-		<% if imagepoll1 == true %>
-			<%= image_tag poll.image.url(:medium)%>
+		<%= form_for poll.votes.build do |f| %>
+		<% if imagepoll1 %>
+		<%= image_tag poll.image.url(:medium)%>
+		<%= f.radio_button :vote_count, 'A' %> Yes<br/>
 		<% end %>
+		
 		<% if imagepoll2 == true %>
-			<%= image_tag poll.image_one.url(:medium)%>
+		<%= image_tag poll.image_one.url(:medium)%>
+		<%= f.radio_button :vote_count, 'B' %> Yes<br/>
+		<p><%= f.submit "Vote" %></p>
 		<% end %>
-
-		<h4><%= poll.message %></h4>
+		<% end %>
 	</p>
 	<hr/>
 <% end %>
 
 <%= link_to 'Text Poll', new_poll_path, class: "btn btn-primary" %>
 <%= link_to 'Picture Poll', polls_picpol_path, class: "btn btn-primary" %>
+<p>

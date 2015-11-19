@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   get '/polls/picpol', to: 'polls#picpol'
-  resources :polls
+  resources :polls do
+    resources :votes
+  end
+
+  resources :votes
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
