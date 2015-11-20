@@ -1,7 +1,6 @@
 class VotesController < ApplicationController
 	def index
 		@vote =Vote.all
-		@poll =Poll.all
 	end
 
 	def show
@@ -9,14 +8,23 @@ class VotesController < ApplicationController
 	end
 
 	def new
-		@vote =Vote.all
+		@vote =Vote.new
 	end
 
 	def create
 		@vote =Vote.new(vot_params)
 
 		if @vote.save
-			redirect_to polls_path, :notice => "Your have voted"
+			redirect_to polls_path, :notice => "You have voted"
+		else
+			redirect_to polls_path
+		end
+	end
+
+	def update
+		@vote = Vote.new(vot_params)
+		if @vote.save
+			redirect_to polls_path, :notice => "You have voted"
 		else
 			redirect_to polls_path
 		end
@@ -25,6 +33,6 @@ class VotesController < ApplicationController
 	private
 
 	def vot_params
-		params.require(:vote).permit(:vote_count )																							
+		params.require(:vote).permit(:vote_count, :poll_id )																							
 	end
 end

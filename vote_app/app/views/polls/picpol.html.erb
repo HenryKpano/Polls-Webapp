@@ -1,13 +1,13 @@
 <h1>This is the picture page</h1>
 
 <%= form_for @poll, html: { multipart: true } do |f| %>
-	<p><%= f.label "Title" %>: <%= f.text_field :title %></p>
+	<p><%= f.label "Topic" %>: <%= f.text_field :topic, class: "form-control" %></p>
 	 
 	<p><%= f.label :image %>: <%= f.file_field :image %></p>
 
 	<p><%= f.label :image_one %>: <%= f.file_field :image_one %></p>
-	
-	<p><%= f.label "Message" %>: <%= f.text_field :message, class: "form-control"%></p>
+
+	<%= f.label "Description" %>: <%= f.text_field :mesage, class: "form-control" %></p>
 
 	<p><%= f.submit "Create poll" %></p>
 

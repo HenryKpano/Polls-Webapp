@@ -3,11 +3,12 @@
 <% @polls.each do |poll| %>
 	<p>		
 		<%= form_for poll.votes.build do |f| %>
-		<%= link_to poll.title, poll %>
-		<%= f.radio_button :vote_count, 'A' %> Yes<br/>
-		<%= poll.message %>
-		<%= f.radio_button :vote_count, 'B' %> Yes<br/>
-		<p><%= f.submit "Vote" %></p>
+		<% unless poll.title.blank? %>
+			<%= poll.title %> Vrs.
+		<% end %>
+		<% unless poll.message.blank? %>
+			<%= poll.message %>
+		<% end %>
 		<% end %>
 		</p>
 
@@ -15,16 +16,17 @@
 		<% imagepoll2 = poll.image_one.url(:medium) != '/image_ones/medium/missing.png' ? true : false %>
 
 		<%= form_for poll.votes.build do |f| %>
+		<%= poll.topic %><p><p>
 		<% if imagepoll1 %>
-		<%= image_tag poll.image.url(:medium)%>
-		<%= f.radio_button :vote_count, 'A' %> Yes<br/>
+		<%= image_tag poll.image.url(:medium)%> Vrs
 		<% end %>
 		
 		<% if imagepoll2 == true %>
 		<%= image_tag poll.image_one.url(:medium)%>
-		<%= f.radio_button :vote_count, 'B' %> Yes<br/>
-		<p><%= f.submit "Vote" %></p>
 		<% end %>
+		<p><p><%= poll.mesage %>
+		<p><%= link_to "View Comments", poll %>
+		<%= link_to "Vote", poll %>
 		<% end %>
 	</p>
 	<hr/>
