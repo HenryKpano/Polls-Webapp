@@ -16,16 +16,8 @@ ActiveRecord::Schema.define(version: 20151118124750) do
   create_table "polls", force: :cascade do |t|
     t.string   "title"
     t.text     "message"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.string   "first_image_file_name"
-    t.string   "first_image_content_type"
-    t.integer  "first_image_file_size"
-    t.datetime "first_image_updated_at"
-    t.string   "second_image_file_name"
-    t.string   "second_image_content_type"
-    t.integer  "second_image_file_size"
-    t.datetime "second_image_updated_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
