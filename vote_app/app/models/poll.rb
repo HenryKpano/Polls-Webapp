@@ -6,4 +6,8 @@ class Poll < ActiveRecord::Base
 	validates_attachment_content_type :image_one, content_type: /\Aimage\/.*\Z/ 
 
 	 has_many :votes
+	 has_many :comments
+	 validates_presence_of :title, :message, :mesage, :unless => :image?
+	 validates_presence_of :topic, :image, :image_one, :mesage, :unless => :message? && :title?
+
 end
