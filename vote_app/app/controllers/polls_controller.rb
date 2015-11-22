@@ -48,7 +48,7 @@ def update
 private
 
 def poll_params
-	params.require(:poll).permit(:title, :message, :image, :image_one)																							
+	params.require(:poll).permit(:title, :message, :image, :image_one, :topic, :mesage)																							
 end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118124750) do
+ActiveRecord::Schema.define(version: 20151120163020) do
 
   create_table "polls", force: :cascade do |t|
     t.string   "title"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20151118124750) do
     t.string   "image_one_content_type"
     t.integer  "image_one_file_size"
     t.datetime "image_one_updated_at"
+    t.string   "topic"
+    t.string   "mesage"
   end
 
   create_table "votes", force: :cascade do |t|

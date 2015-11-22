@@ -1,25 +1,43 @@
 <h3>This is show page</h3>
 
-<%= form_for @poll do |f| %>
-
-<h4><%= @poll.title %></h4>
-<% imagepoll1 = @poll.image.url(:medium) != '/images/medium/missing.png' ? true : false %>
-<% imagepoll2 = @poll.image_one.url(:medium) != '/image_ones/medium/missing.png' ? true : false %>
-
-<% if imagepoll1 == true %>
-	<h3><%= image_tag @poll.image.url(:medium) %></h3>
+<%= form_for @poll,url: vote_path do |f| %>
 	
+	<%= form_for @poll.votes.build do |f| %>
+	<% unless @poll.title.blank? %>
+		<%= @poll.topic %>
+		<%= @poll.title %>
+		<%= f.radio_button :vote_count, 'A' %> Yes
+		<h2><%= @poll.votes.where(:vote_count=>"A").count%></h2>
+	<% end %>
+	<% unless @poll.message.blank? %>
+		<%= @poll.message %>
+		<%= f.radio_button :vote_count, 'B' %> Yes
+		<h2><%= @poll.votes.where(:vote_count=>"B").count%></h2>
+		<p><%= f.submit "Vote" %></p>
+	<% end %>
+	<%= f.hidden_field :poll_id, :value => [@poll.id] %>
+	<% end %>
+
+	<% imagepoll1 = @poll.image.url(:medium) != '/images/medium/missing.png' ? true : false %>
+	<% imagepoll2 = @poll.image_one.url(:medium) != '/image_ones/medium/missing.png' ? true : false %>
+
+	<%= form_for @poll.votes.build do |f| %>
+	<% if imagepoll1 == true %>
+		<%= image_tag @poll.image.url(:medium) %>
+		<%= f.radio_button :vote_count, 'A' %> Yes
+		<h2><%= @poll.votes.where(:vote_count=>"A").count%></h2>
+	<% end %>
+	<% if imagepoll2 == true %>
+		<%= image_tag @poll.image_one.url(:medium) %>
+		<%= f.radio_button :vote_count, 'B' %> Yes
+		<h2><%= @poll.votes.where(:vote_count=>"B").count%></h2>
+		<p><%= f.submit "Vote" %></p>
+	<% end %>
+	<%= f.hidden_field :poll_id, :value => [@poll.id] %>
+	<% end %>
 <% end %>
-<% if imagepoll2 == true %>
-	<h3><%= image_tag @poll.image_one.url(:medium) %></h3>
-	
-<% end %>
 
-
-<h4><%= @poll.message %></h4>
-
-<%= link_to "Back", polls_path(@poll) %>
-<%= link_to "Edit", edit_poll_path(@poll) %> ::
+<%= link_to "Back", polls_path %>
+<%= link_to "Edit", edit_poll_path(@poll) %>
 <%= link_to "Delete", @poll, :confirm => "Are you sure?", :method => :delete %>
 </p>
-<% end %>
