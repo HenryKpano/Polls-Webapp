@@ -2,32 +2,49 @@
 
 <% @polls.each do |poll| %>
 	<p>		
-		<%= form_for poll.votes.build do |f| %>
-		<% unless poll.title.blank? %>
-			<%= poll.title %> Vrs.
-		<% end %>
-		<% unless poll.message.blank? %>
-			<%= poll.message %>
-		<% end %>
-		<% end %>
-		</p>
+	<div class="container">
+		<div class="col-md-12">
+			<%= form_for poll.votes.build do |f| %>
+			<div class="col-md-6">
+				<% unless poll.title.blank? %>
+				<%= poll.title %> 
+				<% end %>
+			</div>
+			<!-- <div class="col-md-4 text-center">
+			<h4>Vrs.</h4>
+			 </div> -->
+			<div class="col-md-6">
+				<% unless poll.message.blank? %>
+				<%= poll.message %>
+				<% end %>
+			</div>
+			<% end %>
+			</p>
+		</div>
+	</div>
+	<div class="container">
+		<div class="col-md-12">
+				<% imagepoll1 = poll.image.url(:medium) != '/images/medium/missing.png' ? true : false %>
+				<% imagepoll2 = poll.image_one.url(:medium) != '/image_ones/medium/missing.png' ? true : false %>
 
-		<% imagepoll1 = poll.image.url(:medium) != '/images/medium/missing.png' ? true : false %>
-		<% imagepoll2 = poll.image_one.url(:medium) != '/image_ones/medium/missing.png' ? true : false %>
-
-		<%= form_for poll.votes.build do |f| %>
-		<%= poll.topic %><p><p>
-		<% if imagepoll1 %>
-		<%= image_tag poll.image.url(:medium)%> Vrs
-		<% end %>
-		
-		<% if imagepoll2 == true %>
-		<%= image_tag poll.image_one.url(:medium)%>
-		<% end %>
-		<p><p><%= poll.mesage %>
-		<p><%= link_to "View Comments", poll %>
-		<%= link_to "Vote", poll %>
-		<% end %>
+				<%= form_for poll.votes.build do |f| %>
+				<%= poll.topic %><p><p>
+				<div class="col-md-6">
+					<% if imagepoll1 %>
+					<%= image_tag poll.image.url(:medium)%> Vrs
+					<% end %>
+				</div>
+				<div class="col-md-6">
+				<% if imagepoll2 == true %>
+				<%= image_tag poll.image_one.url(:medium)%>
+				<% end %><p>
+				</div>
+				<p><p><%= poll.mesage %>
+				<p><%= link_to "View Comments", poll %>
+				<%= link_to "Vote", poll %>
+				<% end %>	
+		</div>
+	</div>
 	</p>
 	<hr/>
 <% end %>

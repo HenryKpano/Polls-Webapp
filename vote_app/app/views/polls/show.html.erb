@@ -22,6 +22,7 @@
 	<% imagepoll2 = @poll.image_one.url(:medium) != '/image_ones/medium/missing.png' ? true : false %>
 
 	<%= form_for @poll.votes.build do |f| %>
+	<strong><%= @poll.mesage %></strong><p><p>
 	<% if imagepoll1 == true %>
 		<%= image_tag @poll.image.url(:medium) %>
 		<%= f.radio_button :vote_count, 'A' %> Yes
@@ -34,9 +35,18 @@
 		<p><%= f.submit "Vote" %></p>
 	<% end %>
 	<%= f.hidden_field :poll_id, :value => [@poll.id] %>
-	<% end %>
+	<% end %>	
 <% end %>
-
+	
+	
+	<%= form_for [@poll.comments.new] do |f| %>
+	<p><%= f.label "New Comment" %>
+	 <%= f.text_field :comment, class: "form-control" %></p>
+	<p><%= f.submit "Add Comment" %></p>
+	<%= f.hidden_field :poll_id, :value => [@poll.id] %>
+	<% end %>
+	<%= render :partial => @poll.comments %>
+	
 <%= link_to "Back", polls_path %>
 <%= link_to "Edit", edit_poll_path(@poll) %>
 <%= link_to "Delete", @poll, :confirm => "Are you sure?", :method => :delete %>
