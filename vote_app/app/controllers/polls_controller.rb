@@ -1,11 +1,13 @@
 class PollsController < ApplicationController
 
+before_action :authenticate_user!, except: [:index, :show]
+
 def index
 	@polls =Poll.all
 end
 
 def new
-	@poll = Poll.new
+	@poll = current_user.polls.build
 end
 
 def picpol
@@ -13,7 +15,7 @@ def picpol
 end
 
 def create
-	@poll =Poll.new(poll_params)
+	@poll =current_user.polls.build(poll_params)
 
 	if @poll.save
 		redirect_to polls_path, :notice => "Your new poll has been created"
