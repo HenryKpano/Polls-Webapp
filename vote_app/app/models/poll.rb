@@ -10,4 +10,5 @@ class Poll < ActiveRecord::Base
 	 validates_presence_of :title, :message, :mesage, :unless => :image?
 	 validates_presence_of :topic, :image, :image_one, :mesage, :unless => :message? && :title?
 
+	 belongs_to :user
 end

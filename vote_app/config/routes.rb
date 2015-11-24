@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/polls/picpol', to: 'polls#picpol'
   get '/polls/show', to: 'polls#show'
   resources :polls do
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'polls#index'
+  root 'landings#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
