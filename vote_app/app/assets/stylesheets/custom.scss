@@ -1,0 +1,21 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#contact {padding-top:80px;}
+
+.home{
+	background-color:#95a5a6; 
+}
+input{
+	height: auto !important;
+}
+#parent {
+   display: table;
+   width: 100%;
+}
+
+#form_login {
+   display: table-cell;
+   text-align: center;
+   vertical-align: middle;
+}
