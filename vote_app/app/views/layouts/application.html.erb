@@ -2,16 +2,17 @@
 <html>
 <head>
   <title>Decide Me</title>
-  <%= stylesheet_link_tag    'application', 'animate', 'responsive', 'bootstrap', 'style', 'owl.carousel', 'owl.theme', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application','SmoothScroll','bootstrap','main','owl.carousel','modernizr.custom','jquery.isotope', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' => true %>
-
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application','main', 'data-turbolinks-track' => true %>
+  
   <%= csrf_meta_tags %>
   
 </head>
 <body>
 <%= render 'layouts/header' %>
 <%= yield %>
+
 <%= render 'layouts/footer' %>
+
 </body>
 </html>
