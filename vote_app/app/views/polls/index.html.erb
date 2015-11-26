@@ -1,7 +1,15 @@
-<div class="home">
-	<div class ="container">
-		<div class="row">
-			<h2>This is the index page </h2>
+<div id="tf-contact" class="text-center">
+<div class="container">
+     <div class="row">
+      <div class"col-md-6 col-md-offset-2">
+        <div class="section-title center">
+          <h3><strong>Create Poll</strong></h3>
+                        <div class="line">
+                            <hr>
+                        </div>
+                        <div class="clearfix"></div>
+               
+                    </div>
 			<% @polls.each do |poll| %>
 				<p>		
 				<div class="container">
@@ -51,4 +59,5 @@
 			<%= link_to 'Picture Poll', polls_picpol_path, class: "btn btn-primary" %>
 		</div>
 	</div>
+</div>
 </div>
