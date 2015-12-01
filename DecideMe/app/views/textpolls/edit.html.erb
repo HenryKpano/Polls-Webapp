@@ -1,0 +1,10 @@
+<h3> This is editing page </h3>
+
+
+<%= form_for :textpoll, url: textpoll_path(@textpoll), method: :patch do |f| %>
+<p><%= f.label "Title" %>: <%= f.text_field :title%></p>
+<p><%= f.label "First Word" %>: <%= f.text_field :first_msg%></p>
+<p><%= f.label "Second Word" %>: <%= f.text_field :second_msg%></p>
+<%= f.submit 'Update' %>
+<% end %>
+<%= link_to 'Back', textpoll_path %>

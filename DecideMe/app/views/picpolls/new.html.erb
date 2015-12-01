@@ -1,0 +1,9 @@
+<h3>This is the new picture page</h3>
+<%= form_for @picpoll, html: { multipart: true } do |f| %>
+<p><%= f.label "Title" %>:<%= f.text_field :title %></p>
+  <p><%= f.label "First image" %>:<%= f.file_field :image %></p>
+  <p><%= f.label "Second image" %>:<%= f.file_field :image_one %></p>
+  <p><%= f.label "Description" %>:<%= f.text_field :message %></p>
+  <%= f.submit "Create Poll" %><p>
+  <%= link_to 'Back', polls_path %>
+<% end %>

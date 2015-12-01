@@ -1,0 +1,40 @@
+<h3>This is the Polls display page</h3>
+<p id="notice"><%= notice %></p>
+<%= link_to 'New textpoll', new_textpoll_path %><p>
+<%= link_to 'New Picpoll', new_picpoll_path %><p>
+
+<% if user_signed_in? %>	
+	<h3>MY polls</h3>
+	<div style="display:none">
+	<%= @polls=current_user.textpolls %>
+	</div>
+	<% @polls.each do |poll| %><p>
+	<h1><%= poll.title %><br></h1>
+	<%= poll.first_msg %><br>
+	<%= poll.second_msg %>
+	<hr>
+	<% end %>
+
+	<div style="display:none">
+	<%= @pol=current_user.picpolls %>
+	</div>
+	<% @pol.each do |pil| %><p>
+	<h1><%= pil.title %><br></h1>
+	<%= image_tag pil.image.url(:medium) %>
+	<%= image_tag pil.image_one.url(:medium) %>
+	<hr>
+	<% end %>
+<% end %>
+
+	<% @textpolls.each do |text| %><p>
+	<%= text.title %>
+	<%= text.first_msg %>
+	<%= text.second_msg %>
+	<%= link_to 'Vote', text %>
+	<% end %>
+	<% @picpolls.each do |pic| %><p>
+	<%= pic.title %><p>
+	<%= image_tag pic.image.url(:medium)%>
+	<%= image_tag pic.image_one.url(:medium) %>
+	<%= link_to 'Vote', pic %>
+	<% end %>

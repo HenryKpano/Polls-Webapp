@@ -1,0 +1,11 @@
+<h3>This is the new page</h3>
+<%= form_for @textpoll, url: textpolls_path do |f| %>
+	<p><%= f.label "Title" %>: <%= f.text_field :title%></p>
+
+	<p><%= f.label "First Word" %>: <%= f.text_field :first_msg%></p>
+
+	<p><%= f.label "Second Word" %>: <%= f.text_field :second_msg%></p>
+
+	<p><%= f.submit "Create poll" %></p>
+<% end %>
+<%= link_to 'Back', polls_path %>

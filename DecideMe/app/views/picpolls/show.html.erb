@@ -1,0 +1,6 @@
+<p id="notice"><%= notice %></p>
+<p><%= image_tag @picpoll.image.url(:medium) %></p>
+<p><%= image_tag @picpoll.image_one.url(:medium) %></p>
+<%= link_to 'Back', polls_path %>
+<%= link_to 'Edit', edit_picpoll_path %>
+<%= link_to "Delete", @picpoll, :confirm => "Are you sure?", :method => :delete %>	

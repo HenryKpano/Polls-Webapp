@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+<%= @textpoll.title %>
+<%= @textpoll.first_msg %>
+<%= @textpoll.second_msg %>
+<%= link_to 'Back', polls_path %>
+<%= link_to 'Edit', edit_textpoll_path %>
+<%= link_to "Delete", @textpoll, :confirm => "Are you sure?", :method => :delete %>	

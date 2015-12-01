@@ -1,0 +1,9 @@
+<h3> Index page </h3>
+<%= link_to 'New Picpoll', new_picpoll_path %><p>
+
+<% @picpolls.each do |pic| %><p>
+<%= pic.title %><p>
+<%= image_tag pic.image.url(:medium)%>
+<%= image_tag pic.image_one.url(:medium) %>
+<%= link_to 'Show', pic %>
+<% end %>
