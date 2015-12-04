@@ -1,5 +1,8 @@
-<h3>This is the Polls display page</h3>
-<p id="notice"><%= notice %></p>
+ <div class="container">
+    <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h1 class="page-header">Polls Display</h1>  
+             <p id="notice"><%= notice %></p>
 <%= link_to 'New textpoll', new_textpoll_path %><p>
 <%= link_to 'New Picpoll', new_picpoll_path %><p>
 
@@ -37,4 +40,9 @@
 	<%= image_tag pic.image.url(:medium)%>
 	<%= image_tag pic.image_one.url(:medium) %>
 	<%= link_to 'Vote', pic %>
-	<% end %>
+	<% end %>                        
+            </div>
+        </div>
+    </div>
+
+
