@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :textpolls
   has_many :picpolls
+  has_many :votes
 end

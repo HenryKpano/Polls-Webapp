@@ -1,6 +1,26 @@
 <p id="notice"><%= notice %></p>
-<p><%= image_tag @picpoll.image.url(:medium) %></p>
-<p><%= image_tag @picpoll.image_one.url(:medium) %></p>
+<p><%= image_tag @picpoll.image.url(:medium) %>
+	<%= form_for @picpoll.votes.build do |f| %>
+	<button class="btn btn-info" aria-label="Left Align">
+		<span class="glyphicon glyphicon-thumbs-up"></span> Like
+		<% if user_signed_in? %>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		<% end %>
+		<%= f.hidden_field :picpoll_id, :value => [@picpoll.id] %>
+		<%= f.hidden_field :count, :value => 'A' %>
+	</button>
+	<% end %>
+</p>
+<p><%= image_tag @picpoll.image_one.url(:medium) %>	
+	<%= form_for @picpoll.votes.build do |f| %>
+	<button class="btn btn-info" aria-label="Left Align">
+		<span class="glyphicon glyphicon-thumbs-up"></span> Like
+		<% if user_signed_in? %>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		<% end %>
+		<%= f.hidden_field :picpoll_id, :value => [@picpoll.id] %>
+		<%= f.hidden_field :count, :value => 'B' %>
+	</button>
+	<% end %>
+</p>
 <%= link_to 'Back', polls_path %>
-<%= link_to 'Edit', edit_picpoll_path %>
-<%= link_to "Delete", @picpoll, :confirm => "Are you sure?", :method => :delete %>	

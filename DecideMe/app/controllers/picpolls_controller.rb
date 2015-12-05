@@ -1,5 +1,6 @@
 class PicpollsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
+	
 	def index
 		@picpolls= Picpoll.all.reverse
 	end
@@ -32,18 +33,16 @@ class PicpollsController < ApplicationController
 		end
 	end
 
-	def destroy
-		@picpoll =Picpoll.find(params[:id])
-		@picpoll.destroy
-		redirect_to polls_path, :notice => "Your poll has been deleted"
-	end
+	# def destroy
+	# 	@picpoll =Picpoll.find(params[:id])
+	# 	@picpoll.destroy
+	# 	redirect_to polls_path, :notice => "Your poll has been deleted"
+	# end
 
-	def edit
-		@picpoll=Picpoll.find(params[:id])
-	end
-
+	# def edit
+	# 	@picpoll=Picpoll.find(params[:id])
+	# end
 	private
-
 	def pic_params
 		params.require(:picpoll).permit(:user_id, :title, :message, :image, :image_one)
 	end

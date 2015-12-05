@@ -1,7 +1,25 @@
 <p id="notice"><%= notice %></p>
-<%= @textpoll.title %>
+<%= @textpoll.title %><p>
 <%= @textpoll.first_msg %>
-<%= @textpoll.second_msg %>
-<%= link_to 'Back', polls_path %>
-<%= link_to 'Edit', edit_textpoll_path %>
-<%= link_to "Delete", @textpoll, :confirm => "Are you sure?", :method => :delete %>	
+<%= form_for @textpoll.votes.build do |f| %>
+	<button class="btn btn-info" aria-label="Left Align">
+		<span class="glyphicon glyphicon-thumbs-up"></span> Like
+		<% if user_signed_in? %>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		<% end %>
+		<%= f.hidden_field :textpoll_id, :value => [@textpoll.id] %>
+		<%= f.hidden_field :count, :value => 'A' %>
+	</button>
+	<% end %>
+<p><%= @textpoll.second_msg %><p>
+	<%= form_for @textpoll.votes.build do |f| %>
+	<button class="btn btn-info" aria-label="Left Align">
+		<span class="glyphicon glyphicon-thumbs-up"></span> Like
+		<% if user_signed_in? %>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		<% end %>
+		<%= f.hidden_field :textpoll_id, :value => [@textpoll.id] %>
+		<%= f.hidden_field :count, :value => 'B' %>
+	</button>
+	<% end %>
+<%= link_to 'Back', polls_path %>	

@@ -1,5 +1,6 @@
 class TextpollsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
+
 	def index
 		@textpolls= Textpoll.all.reverse
 	end
@@ -31,18 +32,17 @@ class TextpollsController < ApplicationController
 		end
 	end
 
-	def destroy
-		@textpoll =Textpoll.find(params[:id])
-		@textpoll.destroy
-		redirect_to polls_path, :notice => "Your poll has been deleted"
-	end
+	# def destroy
+	# 	@textpoll =Textpoll.find(params[:id])
+	# 	@textpoll.destroy
+	# 	redirect_to polls_path, :notice => "Your poll has been deleted"
+	# end
 
-	def edit
-		@textpoll=Textpoll.find(params[:id])
-	end
+	# def edit
+	# 	@textpoll=Textpoll.find(params[:id])
+	# end
 
 	private
-
 	def text_params
 		params.require(:textpoll).permit(:user_id, :title, :first_msg, :second_msg)
 	end
