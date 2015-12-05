@@ -1,14 +1,8 @@
  <div class="container">
     <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h1 class="page-header">Resend Confirmation Instructions</h1>  
-                                     
-            </div>
-        </div>
-    </div>
-
-<h3>This is the index page</h3>
-<%= link_to 'New textpoll', new_textpoll_path %><p>
+                <h1 class="page-header">Text Poll</h1>  
+            <%= link_to 'New textpoll', new_textpoll_path %><p>
 <%= link_to 'New Picpoll', new_picpoll_path %><p>
 <% @textpolls.each do |text| %><p>
 <%= text.title %>
@@ -27,4 +21,8 @@
 <%= poll.first_msg %><br>
 <%= poll.second_msg %>
 <hr>
-<% end %>
+<% end %>                         
+            </div>
+        </div>
+    </div>
+

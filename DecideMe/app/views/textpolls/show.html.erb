@@ -1,16 +1,14 @@
  <div class="container">
     <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h1 class="page-header">Resend Confirmation Instructions</h1>  
-                                     
-            </div>
-        </div>
-    </div>
-
-<p id="notice"><%= notice %></p>
+                <h1 class="page-header">Display Text Polls</h1>  
+            <p id="notice"><%= notice %></p>
 <%= @textpoll.title %>
 <%= @textpoll.first_msg %>
 <%= @textpoll.second_msg %>
 <%= link_to 'Back', polls_path %>
-<%= link_to 'Edit', edit_textpoll_path %>
-<%= link_to "Delete", @textpoll, :confirm => "Are you sure?", :method => :delete %>	
+<%= link_to "Delete", @textpoll, :confirm => "Are you sure?", :method => :delete %>	                         
+            </div>
+        </div>
+    </div>
+

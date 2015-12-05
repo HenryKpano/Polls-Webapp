@@ -1,15 +1,8 @@
  <div class="container">
     <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h1 class="page-header">Resend Confirmation Instructions</h1>  
-                                     
-            </div>
-        </div>
-    </div>
-
-<h2>Resend unlock instructions</h2>
-
-<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+                <h1 class="page-header">Resend Unlock Instructions</h1>
+            <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
@@ -23,3 +16,8 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+                          
+            </div>
+        </div>
+    </div>
+

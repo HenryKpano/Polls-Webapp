@@ -1,18 +1,16 @@
  <div class="container">
     <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h1 class="page-header">Resend Confirmation Instructions</h1>  
-                                     
-            </div>
-        </div>
-    </div>
-
-<h3>This is the new picture page</h3>
-<%= form_for @picpoll, html: { multipart: true } do |f| %>
+                <h1 class="page-header">New Picture Poll</h1>  
+             <%= form_for @picpoll, html: { multipart: true } do |f| %>
 <p><%= f.label "Title" %>:<%= f.text_field :title %></p>
   <p><%= f.label "First image" %>:<%= f.file_field :image %></p>
   <p><%= f.label "Second image" %>:<%= f.file_field :image_one %></p>
   <p><%= f.label "Description" %>:<%= f.text_field :message %></p>
   <%= f.submit "Create Poll" %><p>
   <%= link_to 'Back', polls_path %>
-<% end %>
+<% end %>                        
+            </div>
+        </div>
+    </div>
+

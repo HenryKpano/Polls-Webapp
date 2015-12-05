@@ -10,7 +10,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/polls"><i class="fa fa-fw fa-home"></i> Home</a>
+                   <%= link_to root_path do %><i class="fa fa-fw fa-home"></i> Home
+                   <% end %>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-fw fa-folder"></i> About</a>
@@ -21,13 +22,20 @@
                 <li>
                     <a href="#"><i class="fa fa-fw fa-cog"></i> Contact</a>
                 </li>
-                <li class="dropdown">
+                <% if user_signed_in? %>
+                </li>
+                <li class="dropdown">           
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-plus"></i> Polls <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li class="dropdown-header">Poll Menu</li>
-                    <% if user_signed_in? %>
-                    <li><%= link_to "Text Poll", textpolls_path %></li>
-                    <li><%= link_to "Picture Poll", picpolls_path %></li>
+                    <li class="dropdown-header">
+                    <li><%= link_to textpolls_path do %>
+                      <i class="fa fa-fw fa-th-list"></i> Text Poll
+                      <% end %>
+                    </li>
+                    <li><%= link_to picpolls_path do %>
+                      <i class="fa fa-fw fa-picture-o"></i> Picture Poll
+                      <% end %> 
+                    </li>
                   </ul>
                 </li><hr>
                  <li>
@@ -36,17 +44,17 @@
                  </li>
                 <li>
                   <%= link_to destroy_user_session_path, :method => :delete do %>
-                    <i class="fa fa-fw fa-bank"></i>Sign Out 
+                    <i class="fa fa-fw fa-power-off"></i>Sign Out 
                   <% end %> 
                 </li>
-                <% else %>
+                <% else %><hr>
                 <li>
                   <%= link_to  new_user_session_path do %><i class="fa fa-fw fa-dropbox"></i> Sign In
                  <% end %>
                 </li>
                 <li>
                   <%= link_to  new_user_registration_path do %>
-                  <i class="fa fa-fw fa-twitter"></i>Sign Up
+                  <i class="fa fa-fw fa-user-plus"></i>Sign Up
                   <% end %>
                 </li>
                 <% end %>
