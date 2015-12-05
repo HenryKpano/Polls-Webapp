@@ -14,13 +14,13 @@
                    <% end %>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-folder"></i> About</a>
+                    <a href="#"><i class="fa fa-fw fa-puzzle-piece"></i> About</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-file-o"></i> Team</a>
+                    <a href="#"><i class="fa fa-fw fa-users"></i> Team</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-cog"></i> Contact</a>
+                    <a href="#"><i class="fa fa-fw fa-info-circle"></i> Contact</a>
                 </li>
                 <% if user_signed_in? %>
                 </li>
@@ -44,7 +44,7 @@
                  </li>
                 <li>
                   <%= link_to destroy_user_session_path, :method => :delete do %>
-                    <i class="fa fa-fw fa-power-off"></i>Sign Out 
+                    <i class="fa fa-fw fa-power-off"></i> Sign Out 
                   <% end %> 
                 </li>
                 <% else %><hr>
@@ -54,7 +54,7 @@
                 </li>
                 <li>
                   <%= link_to  new_user_registration_path do %>
-                  <i class="fa fa-fw fa-user-plus"></i>Sign Up
+                  <i class="fa fa-fw fa-user-plus"></i> Sign Up
                   <% end %>
                 </li>
                 <% end %>
