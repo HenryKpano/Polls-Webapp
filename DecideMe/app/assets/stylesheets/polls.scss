@@ -1,0 +1,36 @@
+// Place all the styles related to the polls controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1.frame {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.a {
+  text-decoration: none;
+}
+.new {
+  background-color: #16a085;
+} 
+
+.col-lg-4 > a {
+  padding-top: 10px;
+  text-decoration: none;
+}
+
+.btn-vote {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  width: 80px;
+  height: 50px;
+  border: none;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-left: 10%;
+  background-color: #1059FF;
+}

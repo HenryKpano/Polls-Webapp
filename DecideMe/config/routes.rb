@@ -3,11 +3,13 @@ Rails.application.routes.draw do
 
  
   resources :polls do
-    resources :textpolls
-    resources :picpolls
+    resources :textpolls 
+    resources :picpolls 
   end
-  resources :textpolls
-  resources :picpolls
+  resources :textpolls 
+  resources :picpolls 
+  resources :landings
+  resources :votes
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

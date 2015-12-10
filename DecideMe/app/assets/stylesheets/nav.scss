@@ -75,6 +75,7 @@ html {
   line-height: 20px;
   position: relative;
   width: 100%;
+  text-transform: none;
 }
 .sidebar-nav li:before {
   background-color: #1c1c1c;
@@ -126,6 +127,7 @@ html {
   display: block;
   padding: 10px 15px 10px 30px;
   text-decoration: none;
+  text-align: left;
 }
 .sidebar-nav li.open:hover before {
   -webkit-transition: width 0.2s ease-in;
@@ -183,7 +185,7 @@ html {
 .hamburger.is-closed:before {
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-transition: all 0.35s ease-in-out;
-  color: #ffffff;
+  color: #583e7e;;
   content: '';
   display: block;
   font-size: 14px;
@@ -208,18 +210,23 @@ html {
 }
 .hamburger.is-closed .hamb-top {
   -webkit-transition: all 0.35s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgb(245, 245, 245);
+  bottom: 5px;
+  box-shadow: 1px 1px 4px 1px rgb(85, 85, 85);
   top: 5px;
 }
 .hamburger.is-closed .hamb-middle {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgb(245, 245, 245);
+  bottom: 5px;
+  box-shadow: 1px 1px 4px 1px rgb(85, 85, 85);
   margin-top: -2px;
   top: 50%;
 }
 .hamburger.is-closed .hamb-bottom {
   -webkit-transition: all 0.35s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgb(245, 245, 245);
   bottom: 5px;
+  box-shadow: 1px 1px 4px 1px rgb(85, 85, 85);
 }
 .hamburger.is-closed .hamb-top,
 .hamburger.is-closed .hamb-middle,
@@ -235,25 +242,31 @@ html {
 .hamburger.is-open .hamb-top {
   -webkit-transform: rotate(45deg);
   -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.73, 1, 0.28, 0.08);
-  background-color: #ffffff;
+  background-color: rgb(245, 245, 245);
+  bottom: 5px;
+  box-shadow: 1px 1px 4px 1px rgb(85, 85, 85);
   margin-top: -2px;
   top: 50%;
 }
 .hamburger.is-open .hamb-middle {
-  background-color: #ffffff;
+  background-color: rgb(245, 245, 245);
+  bottom: 5px;
+  box-shadow: 1px 1px 4px 1px rgb(85, 85, 85);
   display: none;
 }
 .hamburger.is-open .hamb-bottom {
   -webkit-transform: rotate(-45deg);
   -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.73, 1, 0.28, 0.08);
-  background-color: #ffffff;
+  background-color: rgb(245, 245, 245);
+  bottom: 5px;
+  box-shadow: 1px 1px 4px 1px rgb(85, 85, 85);
   margin-top: -2px;
   top: 50%;
 }
 .hamburger.is-open:before {
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-transition: all 0.35s ease-in-out;
-  color: #ffffff;
+  color: rgba(88, 62, 126, 1);
   content: '';
   display: block;
   font-size: 14px;
@@ -268,6 +281,8 @@ html {
   display: block;
   opacity: 1;
 }
+
+
 /*-------------------------------*/
 /*          Dark Overlay         */
 /*-------------------------------*/
@@ -284,7 +299,6 @@ html {
   z-index: 1;
 }
 /* SOME DEMO STYLES - NOT REQUIRED */
-body,
 html {
   background-color: #583e7e;
 }
@@ -304,4 +318,11 @@ body a {
 }
 body a:hover {
   color: #ffffff;
+}
+
+.logo {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  height:25px;
 }

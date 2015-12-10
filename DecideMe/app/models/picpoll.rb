@@ -5,4 +5,5 @@ class Picpoll < ActiveRecord::Base
 	validates_attachment_content_type 			:image_one, content_type: /\Aimage\/.*\Z/
 	belongs_to 									:user
 	validates_presence_of						:title, :message, :image, :image_one
+	has_many									:votes
 end

@@ -9,19 +9,7 @@
 <%= text.first_msg %>
 <%= text.second_msg %>
 <%= link_to 'Vote', text %>
-<% end %>
-
-
-<h3>MY polls</h3>
-<div style="display:none">
-<%= @polls=current_user.textpolls %>
-</div>
-<% @polls.each do |poll| %><p>
-<h1><%= poll.title %><br></h1>
-<%= poll.first_msg %><br>
-<%= poll.second_msg %>
-<hr>
-<% end %>                         
+<% end %>                      
             </div>
         </div>
     </div>

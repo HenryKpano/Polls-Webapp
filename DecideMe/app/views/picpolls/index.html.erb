@@ -1,16 +1,16 @@
  <div class="container">
-    <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h1 class="page-header">Picture Poll</h1>  
-            <%= link_to 'New Picpoll', new_picpoll_path %><p>
+ 	<div class="row">
+ 		<div class="col-lg-8 col-lg-offset-2">
+ 			<h1 class="page-header">Picture Poll</h1>  
+ 			<%= link_to 'New Picpoll', new_picpoll_path %><p>
 
 <% @picpolls.each do |pic| %><p>
 <%= pic.title %><p>
 <%= image_tag pic.image.url(:medium)%>
 <%= image_tag pic.image_one.url(:medium) %>
 <%= link_to 'Show', pic %>
-<% end %>                         
-            </div>
-        </div>
-    </div>
+<% end %>                      
+ 		</div>
+ 	</div>
+ </div>
 
