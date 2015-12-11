@@ -1,0 +1,86 @@
+ <div class="container">
+    <div class="row">
+     <h1 class="frame" >
+			<div class="col-lg-8" style="margin-top:15px;">Text Poll</div>
+			<div class = "col-lg-4">
+			<%= link_to 'New Text Poll', new_textpoll_path, :class=> "btn-sign new" %>	
+			</div>
+		</h1>
+		<div class="col-lg-3"></div>
+<div class="col-lg-8 frame">
+			<h3>My Text Polls</h3><hr>
+			<div style="display:none">
+				<% @polls=current_user.textpolls %>
+			</div>
+			<% @textpolls.each do |poll| %>
+			<div class="row">
+				<div class="col-lg-6">
+					<h4><%= poll.title %><br><span class="total">
+						<% first = poll.votes.where(:count=>'A').count %>
+						<% second = poll.votes.where(:count => 'B').count %><%= total = first+second%> (Votes)<% percentA = (first.to_f/total*100).round(0)%>
+						<% percentB = (second.to_f/total*100).round(0)%>
+					</span></h4>
+				</div>
+
+				<% if first > second %>
+				<div class="col-lg-3">
+					<h4 style="text-align:center"><%= poll.first_msg %></h4>
+					<div class="progress">
+						<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= percentA %>%;">
+							<span><%= percentA %>%</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<h4 style="text-align:center"><%= poll.second_msg %></h4>
+					<div class="progress">
+						<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= percentB %>%;">
+							<span><%= percentB %>%</span>
+						</div>
+					</div>
+				</div>
+
+			<% elsif first == second %>
+				<div class="col-lg-3">
+					<h4 style="text-align:center"><%= poll.first_msg %></h4>
+					<div class="progress">
+						<div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= percentA %>%;">
+							<span><%= percentA %>%</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<h4 style="text-align:center"><%= poll.second_msg %></h4>
+					<div class="progress">
+						<div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= percentB %>%;">
+							<span><%= percentB %>%</span>
+						</div>
+					</div>
+				</div>
+			<% else %>	
+
+			<div class="col-lg-3">
+					<h4 style="text-align:center"><%= poll.first_msg %></h4>
+					<div class="progress">
+						<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%= percentA %>%;">
+							<span><%= percentA %>%</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<h4 style="text-align:center"><%= poll.second_msg %></h4>
+					<div class="progress">
+						<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= percentB %>%;">
+							<span><%= percentB %>%</span>
+						</div>
+					</div>
+				</div>
+			<% end %>
+			</div>
+			<hr>
+			<% end %>
+			</div>                    
+            </div>
+        </div>
+    </div>
+

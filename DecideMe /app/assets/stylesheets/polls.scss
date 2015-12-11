@@ -1,0 +1,95 @@
+// Place all the styles related to the polls controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1.frame {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.image {
+  margin-left: auto;
+  margin-right: auto;
+}
+h4 {
+  text-align: left;
+  padding-left: 10px;
+}
+.a {
+  text-decoration: none;
+}
+.new {
+  background-color: #16a085;
+} 
+
+.col-lg-4 {
+  margin-top: 10px;
+}
+
+.col-lg-4 > a {
+  padding-top: 10px;
+  text-decoration: none;
+}
+
+.btn-vote {
+  float: right;
+  border-radius: 10px;
+  background-color: #1059FF;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: -40px;
+  margin-right: 10px;
+  padding-top: 10px;
+}
+
+.all-vote {
+  float: right;
+  border-radius: 10px;
+  background-color: #1059FF;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: -40px;
+  margin-right: 10px;
+  padding-top: 10px;
+}
+
+.col-lg-6 > hr {
+  border-color: #8e44ad;
+  box-shadow: 0px 0px 3px 2px;
+}
+
+.frame >hr {
+  border-color: #95a5a6;
+  box-shadow: 0px 0px 3px 2px;
+}
+
+.progress {
+  background-color: #C2BFBF;
+  box-shadow: 0px 0px 3px 2px;
+  border-color: #2c3e50 1px solid;
+}
+
+.progress-bar > span {
+  color: #2c3e50;
+  font-weight: 700;
+}
+.total {
+  color: #3498db;
+  font-weight: 700;
+  text-align: center;
+}
+
+.thumbnail {
+  width: 320px;
+  height: 200px;
+  margin-left: 20px;
+}

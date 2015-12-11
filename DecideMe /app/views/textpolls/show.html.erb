@@ -1,0 +1,36 @@
+ <div class="container">
+    <div class="row">
+            <div class="frame">
+                <h1 class="page-header"> Text Poll</h1>  
+            <p id="notice"><%= notice %></p>
+<h3><%= @textpoll.title %></h3>
+<h4 style="text-align:center;"><%= @textpoll.first_msg %></h4>
+<%= form_for @textpoll.votes.build do |f| %>
+	<button class="btn btn-info" aria-label="Left Align">
+		<span class="glyphicon glyphicon-thumbs-up"></span> Like
+		<% if user_signed_in? %>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		<% end %>
+		<%= f.hidden_field :textpoll_id, :value => [@textpoll.id] %>
+		<%= f.hidden_field :count, :value => 'A' %>
+	</button>
+	<% @textpoll.votes.where(:count=>'A').count%>
+	<% end %>
+	<h4 style="text-align:center;"><%= @textpoll.second_msg %></h4>
+	<%= form_for @textpoll.votes.build do |f| %>
+	<button class="btn btn-info" aria-label="Left Align">
+		<span class="glyphicon glyphicon-thumbs-up"></span> Like
+		<% if user_signed_in? %>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		<% end %>
+		<%= f.hidden_field :textpoll_id, :value => [@textpoll.id] %>
+		<%= f.hidden_field :count, :value => 'B' %>
+	</button>
+	<% @textpoll.votes.where(:count=>'B').count%>
+	<% end %>
+	<div class="forgot">
+<%= link_to 'Back', polls_path %>	
+            </div>
+        </div>
+    </div>
+

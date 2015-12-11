@@ -1,0 +1,23 @@
+<div class="container">
+ <div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+    <div class="frame">
+        <h1>New Text Poll</h1>       
+        <hr class="form-bar">  
+            <%= form_for @textpoll, :class => "form-sign", url: textpolls_path do |f| %>
+    <%= f.text_field :title, :class => "form-styling", :placeholder => "Title"%>
+
+ <%= f.text_field :first_msg, :class => "form-styling", :placeholder => "First Word"%>
+
+<%= f.text_field :second_msg, :class => "form-styling", :placeholder => "Second Word"%>
+
+    <%= f.submit "Create poll", :class => "btn-sign" %>
+<% end %>
+<div class="forgot">
+<%= link_to 'Back', polls_path %>      
+</div>                   
+            </div>
+        </div>
+    </div>
+</div>
+

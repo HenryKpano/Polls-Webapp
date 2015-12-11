@@ -1,0 +1,57 @@
+ <div class="container">
+    <div class="row">
+	<div class="col-lg-12">
+<h1 class="frame " style="width:100%">
+			<div class="col-lg-8" style="margin-top:15px;text-align:center;">Picture Poll</div>
+		</h1>
+<p id="notice"><%= notice %></p>
+
+ <div class="col-lg-12 frame" style="width:100%"><div class="row"></div>
+ 	<h3><%= @picpoll.title %></h3>
+<div class="col-lg-4 col-lg-offset-2">
+    <a href="#" class="thumbnail frame">
+    	<%= image_tag @picpoll.image.url(:medium) %>
+    </a>
+  </div>
+  <div class="col-lg-4">
+<a href="#" class="thumbnail frame">
+	<%= image_tag @picpoll.image_one.url(:medium) %>	
+    </a>
+  </div>
+
+<div class="col-lg-4 col-lg-offset-2">
+	<%= form_for @picpoll.votes.build do |f| %>
+	<button class="btn btn-info" aria-label="Center Align">
+		<span class="glyphicon glyphicon-thumbs-up"></span>Like
+		<% if user_signed_in? %>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		<% end %>
+		<%= f.hidden_field :picpoll_id, :value => [@picpoll.id] %>
+		<%= f.hidden_field :count, :value => 'A' %>
+	</button>
+	<% @picpoll.votes.where(:count=>'A').count%>
+	<% end %>
+</div>
+
+<div class="col-lg-4">
+	<%= form_for @picpoll.votes.build do |f| %>
+	<button class="btn btn-info" aria-label="Center Align">
+		<span class="glyphicon glyphicon-thumbs-up"></span> Like
+		<% if user_signed_in? %>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		<% end %>
+		<%= f.hidden_field :picpoll_id, :value => [@picpoll.id] %>
+		<%= f.hidden_field :count, :value => 'B' %>
+	</button>
+	<% @picpoll.votes.where(:count=>'B').count%>
+	<% end %>
+</div><div class="row"></div>
+<div class="forgot">
+<%= link_to 'Back', polls_path %></div>
+</div>
+
+</p>
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,20 @@
+ <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <div class="frame">
+        <h1>New Text Poll</h1>
+<hr class="form-bar">
+  <%= form_for @picpoll, :class => "form-sign", html: { multipart: true } do |f| %>
+<%= f.text_field :title, :class => "form-styling", :placeholder => "Title/Question" %>
+  <%= f.file_field :image, :class => "form-styling image", :placeholder => "Image" %>
+  <%= f.file_field :image_one, :class => "form-styling image", :placeholder => "Image" %>
+ <%= f.text_field :message, :class => "form-styling", :placeholder => "Description" %>
+  <%= f.submit "Create Poll", :class => "btn-sign" %>
+<% end %>  
+<div class="forgot">
+  <%= link_to 'Back', polls_path %>
+</div>                     
+            </div>
+        </div>
+    </div>
+

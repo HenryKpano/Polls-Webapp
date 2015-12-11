@@ -1,0 +1,74 @@
+ <div id="wrapper">
+        <div class="overlay"></div>
+    
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="/">
+                       Welcome!
+                    </a>
+                </li>
+                <li>
+                   <%= link_to root_path do %><i class="fa fa-fw fa-home"></i> Home
+                   <% end %>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-puzzle-piece"></i> About</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-users"></i> Team</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-info-circle"></i> Contact</a>
+                </li>
+                <% if user_signed_in? %>
+                </li>
+                <li class="dropdown">           
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-plus"></i> Polls <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header">
+                    <li><%= link_to textpolls_path do %>
+                      <i class="fa fa-fw fa-th-list"></i> Text Poll
+                      <% end %>
+                    </li>
+                    <li><%= link_to picpolls_path do %>
+                      <i class="fa fa-fw fa-picture-o"></i> Picture Poll
+                      <% end %> 
+                    </li>
+                  </ul>
+                </li><hr>
+                 <li>
+                  <%= link_to  edit_user_registration_path do %> <i class="fa fa-fw fa-twitter"></i>Edit Profile
+                  <% end %>
+                 </li>
+                <li>
+                  <%= link_to destroy_user_session_path, :method => :delete do %>
+                    <i class="fa fa-fw fa-power-off"></i> Sign Out 
+                  <% end %> 
+                </li>
+                <% else %><hr>
+                <li>
+                  <%= link_to  new_user_session_path do %><i class="fa fa-fw fa-sign-in"></i> Sign In
+                 <% end %>
+                </li>
+                <li>
+                  <%= link_to  new_user_registration_path do %>
+                  <i class="fa fa-fw fa-user-plus"></i> Sign Up
+                  <% end %>
+                </li>
+                <% end %>
+            </ul>
+        </nav>
+
+ <div id="page-content-wrapper">
+          <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas" onclick="hamburger_cross()">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+          </button>
+           
+   </div>    
+   <div>
+    <%= image_tag("logo.png", class:"logo") %>
+   </div>
